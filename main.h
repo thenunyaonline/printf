@@ -13,5 +13,7 @@ int _strlen(char *str);
 int _strlenc(const char *str);
 int print_in(va_list arg);
 int print_de(va_list arg);
+int print_int(va_list args);
+int print_dec(va_list args);
 
 #endif
