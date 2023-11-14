@@ -7,5 +7,6 @@
 
 int _printf(const char *format, ...)
 {
-	
+	unsigned int i, printed_chars = 0;
+
 }
