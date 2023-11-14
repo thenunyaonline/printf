@@ -8,7 +8,7 @@
  * Return: Always 0
  */
 
-int main(void)
+int main()
 {
 	_printf("Sun\n");
 	_printf("%d\n", 'u');
