@@ -1,17 +1,18 @@
 #include "main.h"
 
-/* _printf - function produces output according to a format
+/**
+ * _printf - function produces output according to a format
  * @format: character string
  * Return: output
  */
 
 int _printf(const char *format, ...)
 {
-	int i, printed_chars = 0;
+	int printed_chars = 0;
 	va_list list_of_args;
 
 	if (format == NULL)
-		return -1;
+		return (-1);
 
 	va_start(list_of_args, format);
 
@@ -48,7 +49,7 @@ int _printf(const char *format, ...)
 					str_len++;
 
 				write(1, str, str_len);
-				printed_chars++; += str_len;
+				printed_chars += str_len;
 			}
 		}
 
@@ -57,7 +58,7 @@ int _printf(const char *format, ...)
 
 	va_end(list_of_args);
 
-	return printed_chars; 
+	return (printed_chars);
 }
 
 

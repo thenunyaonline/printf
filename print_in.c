@@ -65,7 +65,7 @@ int print_de(va_list args)
 	if (last < 0)
 	{
 		_putchar('-');
-		num = -num
+		num = -num;
 		n = -n;
 		last = -last;
 		i++;
