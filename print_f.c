@@ -61,13 +61,3 @@ int _printf(const char *format, ...)
 
 	return (printed_chars);
 }
-
-
-int main()
-{
-	_printf("Sun\n");
-	_printf("%d\n", 'u');
-	_printf("%s\n", "string");
-	_printf("%%\n");
-	return (0);
-}
