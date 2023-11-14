@@ -17,5 +17,7 @@ int print_in(va_list arg);
 int print_de(va_list arg);
 int binary(int num);
 int octal(int num);
+int _MAX;
+int _MIN;
 
 #endif
