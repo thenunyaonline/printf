@@ -3,29 +3,29 @@
 /**
  * printf_string - prints string
  * @val: argument
- * @Return: lenght of string
+ * Return: length of string
  */
 
 int printf_string(va_list val)
 {
 	char *str;
 	int i;
-	int lenght;
+	int length;
 
 	str = va_arg(val, char *);
 	if (str == NULL)
 	{
 		str = "(NULL)";
-		lenght = _strlen(str);
-		for (i = 0; i < lenght; i++)
+		length = _strlen(str);
+		for (i = 0; i < length; i++)
 			_putchar(str[i]);
-		return (lenght);
+		return (length);
 	}
 	else
 	{
-		lenght = _strlen(str);
-		for (i = 0; i < lenght; i++)
+		length = _strlen(str);
+		for (i = 0; i < length; i++)
 			_putchar(str[i]);
-		return (lenght);
+		return (length);
 	}
 }
