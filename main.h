@@ -7,6 +7,12 @@
 #include <unistd.h>
 #include <limits.h>
 
+typedef struct format
+{
+	char *id;
+	int (*f)();
+} match;
+
 int _putchar(char c);
 int printf_char(va_list val);
 int printf_string(va_list val);
