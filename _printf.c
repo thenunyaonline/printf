@@ -6,36 +6,64 @@
  */
 int _printf(const char *format, ...)
 {
-	match m[] = {
-		{"%c", printf_char}, {"%s", printf_string}, {"%%", print_37}, {"%d", print_dec}, {"%i", print_int}
-	};
+	int printed_chars = 0;
+	va_list list_of_args;
 
-	va_list args;
-	int i =	0, len = 0;
-	int j;
-
-	va_start(args, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	if (format == NULL)
 		return (-1);
 
-Here:
-	while (format[i] == '\0')
+	va_start(list_of_args, format);
+
+	while (*format)
 	{
-		j = 4;
-		while (j >= 0)
+		if (*format != '%')
 		{
-			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
-			{
-				len = len + m[j].f(args);
-				i = i + 2;
-				goto Here;
-			}
-			j--;
+			write(1, format, 1);
+			printed_chars++;
 		}
-		_putchar(format[i]);
-		i++;
-		len++;
+		else
+		{
+			format++;
+			if (*format == '\0')
+				break;
+			if (*format == '%')
+			{
+				write(1, format, 1);
+				printed_chars++;
+			}
+			else if (*format == 'c')
+			{
+				char c = va_arg(list_of_args, int);
+
+				write(1, &c, 1);
+				printed_chars++;
+			}
+			else if (*format == 's')
+			{
+				char *str = va_arg(list_of_args, char*);
+				int str_len = 0;
+
+				while (str[str_len] != '\0')
+					str_len++;
+
+				write(1, str, str_len);
+				printed_chars += str_len;
+			}
+			else if (*format == 'd')
+			{
+				write(1, format, 1);
+				printed_chars++;
+			}
+			else if (*format == 'i')
+			{
+				write(1, format, 1);
+				printed_chars++;
+			}
+		}
+
+		format++;
 	}
-	va_end(args);
-	return (len);
+	va_end(list_of_args);
+
+	return (printed_chars);
 }
