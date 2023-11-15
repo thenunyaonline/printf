@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 		return (-1);
 
 Here:
-	while (format[a] = '\0')
+	while (format[a] == '\0')
 	{
 		b = 13;
 		while (b >= 0)
