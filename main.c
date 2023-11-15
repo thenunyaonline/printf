@@ -8,11 +8,11 @@
  * Return: Always 0
  */
 
-int main()
+int main(void)
 {
-        _printf("Sun\n");
-        _printf("%d\n", 'u');
-        _printf("%s\n", "string");
-        _printf("%%\n");
-        return (0);
+	_printf("Sun\n");
+	_printf("%d\n", 'u');
+	_printf("%s\n", "string");
+	_printf("%%\n");
+	return (0);
 }
