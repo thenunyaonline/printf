@@ -11,29 +11,29 @@ int _printf(const char *format, ...)
 	};
 
 	va_list args;
-	int a =	0, len = 0;
-	int b;
+	int i =	0, len = 0;
+	int j;
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
 Here:
-	while (format[a] == '\0')
+	while (format[i] == '\0')
 	{
-		b = 13;
-		while (b >= 0)
+		j = 4;
+		while (j >= 0)
 		{
-			if (m[b].id[0] == format[a] && m[b].id[1] == format[a + 1])
+			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
 			{
-				len = len + m[b].f(args);
-				a = a + 2;
+				len = len + m[j].f(args);
+				i = i + 2;
 				goto Here;
 			}
-			b--;
+			j--;
 		}
-		_putchar(format[a]);
-		a++;
+		_putchar(format[i]);
+		i++;
 		len++;
 	}
 	va_end(args);
